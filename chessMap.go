@@ -58,7 +58,7 @@ func run() string {
 	startR, err := strconv.Atoi(res[0])
 	if err != nil {
         // ... handle error
-    } 
+    	} 
 
 	startC := abc[res[1]]
 
