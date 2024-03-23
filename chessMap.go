@@ -12,15 +12,15 @@ func run() string {
 
 	// Test values:
 
-	C := 25
-	R := 11
-	startPosition := "5a"
+	// C := 25
+	// R := 11
+	// startPosition := "5a"
 	// should end 8b - does
 	
 
-	// C := 33
-	// R := 7
-	// startPosition := "6b"
+	C := 33
+	R := 7
+	startPosition := "6b"
 	// should end 5c - does
 
 	// C := 71
@@ -65,16 +65,14 @@ func run() string {
 	R = R % 8 // remainder will be actual number of squares moved
 	C = C % 8
 
-	if R + startR > 8 { // handle moving beyond edge of board
-		endR = startR + R - 8
-	} else {
-		endR = startR + R
+	endR = startR + R
+	if endR > 8 { // handle moving beyond edge of board
+		endR = endR - 8
 	}
 
-	if C + startC > 8 {
-		endC = startC + C - 8
-	} else {
-		endC = startC + C
+	endC = startC + C
+	if endC > 8 {
+		endC = endC - 8
 	}
 
 	endRStr := strconv.Itoa(endR)
@@ -86,4 +84,3 @@ func run() string {
 	return endPosition
 	
 }
-
