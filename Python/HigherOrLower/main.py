@@ -7,7 +7,6 @@ print(art.logo)
 
 wrong = False
 score = 0
-clear = lambda: os.system('clear')
 
 def format_data(data):
     return f"{data['name']}, a {data['description']}, from {data['country']}"
