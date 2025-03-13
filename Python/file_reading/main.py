@@ -7,11 +7,11 @@
     #Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
         #Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
 
-with open("Input/invited_names.txt", "r") as names:
+with open("inputs/invited_names.txt", "r") as names:
     name_list = names.readlines()
     # print(name_list)
 
-with open("Input/starting_letter.txt") as file:
+with open("inputs/starting_letter.txt") as file:
     file = file.read()
 
     for name in name_list:
