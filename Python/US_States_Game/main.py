@@ -31,13 +31,10 @@ while len(guessed) < 50:
         tag.write(arg= f"{answer_state}", font= FONT)
 
     if answer_state == "Exit":
+        states_to_learn = [state for state in states if state not in guessed]
+        # for state in states:
+        #     if state not in guessed:
+        #         states_to_learn.append(state)
+        states_to_learn_DF = pandas.DataFrame(states_to_learn)
+        states_to_learn_DF.to_csv("states_to_learn.csv")
         break
-
-states_to_learn = []
-
-for state in states:
-    if state not in guessed:
-        states_to_learn.append(state)
-
-states_to_learn_DF = pandas.DataFrame(states_to_learn)
-states_to_learn_DF.to_csv("states_to_learn.csv")
