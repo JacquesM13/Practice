@@ -1,0 +1,19 @@
+img {
+    max-width: 600px;
+    max-height: 900px;
+    border: 10px solid white;
+    display: block;
+    margin: auto;
+}
+.text {
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-color: black;
+}
+
+.poster {
+    font-family: "Libre Baskerville", serif;
+}
