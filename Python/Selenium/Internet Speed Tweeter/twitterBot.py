@@ -6,8 +6,8 @@ from time import sleep
 
 class TwitterBot:
     def __init__(self):
-        self.PASSWORD = 'RGI76efa!X'
-        self.email = 'codebreaker747@outlook.com'
+        self.PASSWORD = ''
+        self.email = '@.com'
         self.chrome_options = webdriver.ChromeOptions()
         self.chrome_options.add_experimental_option("detach", True)
         self.driver = webdriver.Chrome(options= self.chrome_options)
