@@ -41,18 +41,50 @@ except Exception as e:
 #
 sleep(2)
 
-username_field = driver.find_element(By.NAME, value= 'username')
-username_field.send_keys(USERNAME)
+try:
+    username_field = driver.find_element(By.NAME, value= 'username')
+    username_field.send_keys(USERNAME)
 
-password_field = driver.find_element(By.NAME, value= 'password')
-password_field.send_keys(PASSWORD)
+    password_field = driver.find_element(By.NAME, value= 'password')
+    password_field.send_keys(PASSWORD)
 
-log_in = driver.find_element(By.CSS_SELECTOR, value= '[type="submit"]')
-log_in.click()
+    log_in = driver.find_element(By.CSS_SELECTOR, value= '[type="submit"]')
+    log_in.click()
+except Exception as e:
+    log_in_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@role='button' and text()='Log In']")))
+    log_in_button.click()
+
+    sleep(2)
+
+    username_field = driver.find_element(By.NAME, value= 'username')
+    username_field.send_keys(USERNAME)
+
+    password_field = driver.find_element(By.NAME, value= 'password')
+    password_field.send_keys(PASSWORD)
+    sleep(10)
 
 sleep(2)
 
-not_now_btn = wait.until(
-    EC.element_to_be_clickable((By.XPATH, "//div[@role='button' and normalize-space()='Not now']"))
-)
+not_now_btn = wait.until(EC.element_to_be_clickable((By.XPATH, "//div[@role='button' and normalize-space()='Not now']")))
 not_now_btn.click()
+
+sleep(2)
+
+# Wait for and select the followers link
+followers_link = wait.until(
+    EC.presence_of_element_located(
+        (By.XPATH, "//a[contains(@href, '/followers/') and contains(., 'followers')]")
+    )
+)
+
+# Example: Click the link (optional)
+followers_link.click()
+
+sleep(2)
+
+try:
+    follow_button = wait.until(EC.element_to_be_clickable((By.XPATH, "//button[.//div[text()='Follow']]")))
+    follow_button.click()
+    print("✅ Follow button clicked.")
+except Exception as e:
+    print("❌ Failed to click Follow button:", e)
