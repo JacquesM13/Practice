@@ -26,12 +26,15 @@ allow_cookies_button.click()
 # allow_cookies.click()
 
 sleep(3)
+try:
+    close_btn = wait.until(
+        EC.element_to_be_clickable((By.XPATH,
+            "//svg[@title='Close' or @aria-label='Close']/ancestor::div[@role='button']"))
+    )
+    close_btn.click()
 
-close_btn = wait.until(
-    EC.element_to_be_clickable((By.XPATH,
-        "//svg[@title='Close' or @aria-label='Close']/ancestor::div[@role='button']"))
-)
-close_btn.click()
+except Exception as e:
+    pass
 
 # log_in_button = driver.find_element(By.XPATH, "//div[@role='button' and text()='Log in']")
 # log_in_button.click()
@@ -46,3 +49,10 @@ password_field.send_keys(PASSWORD)
 
 log_in = driver.find_element(By.CSS_SELECTOR, value= '[type="submit"]')
 log_in.click()
+
+sleep(2)
+
+not_now_btn = wait.until(
+    EC.element_to_be_clickable((By.XPATH, "//div[@role='button' and normalize-space()='Not now']"))
+)
+not_now_btn.click()
