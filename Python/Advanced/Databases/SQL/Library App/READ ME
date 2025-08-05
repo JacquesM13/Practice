@@ -1,0 +1,1 @@
+Using Flask, SQL Lite, SQLAlchemy to make a website to store books I've read, what I rate them, and store this in a database. Using Jinja also
